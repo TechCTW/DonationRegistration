@@ -1,0 +1,39 @@
+[
+      {"name": "Neujahr 2024", "date": "2024-01-01"},
+      {"name": "Karfreitag 2024", "date": "2024-03-29"},
+      {"name": "Ostermontag 2024", "date": "2024-04-01"},
+      {"name": "Tag der Arbeit 2024", "date": "2024-05-01"},
+      {"name": "Christi Himmelfahrt 2024", "date": "2024-05-09"},
+      {"name": "Pfingstmontag 2024", "date": "2024-05-20"},
+      {"name": "Fronleichnam 2024", "date": "2024-05-30"},
+      {"name": "Tag der Deutschen Einheit 2024", "date": "2024-10-03"},
+      {"name": "Weihnachtstag 2024", "date": "2024-12-25"},
+      {"name": "Zweiter Weihnachtstag 2024", "date": "2024-12-26"},
+
+      {"name": "Urlaub 1 2024", "date": "2024-07-01"},
+      {"name": "Urlaub 2 2024", "date": "2024-07-03"},
+      {"name": "Urlaub 3 2024", "date": "2024-07-14"},
+
+      
+      {"name": "Neujahr 2025", "date": "2025-01-01"},
+      {"name": "Karfreitag 2025", "date": "2025-04-18"},
+      {"name": "Ostermontag 2025", "date": "2025-04-21"},
+      {"name": "Tag der Arbeit 2025", "date": "2025-05-01"},
+      {"name": "Christi Himmelfahrt 2025", "date": "2025-05-29"},
+      {"name": "Pfingstmontag 2025", "date": "2025-06-09"},
+      {"name": "Fronleichnam 2025", "date": "2025-06-19"},
+      {"name": "Tag der Deutschen Einheit 2025", "date": "2025-10-03"},
+      {"name": "Weihnachtstag 2025", "date": "2025-12-25"},
+      {"name": "Zweiter Weihnachtstag 2025", "date": "2025-12-26"},
+      
+      {"name": "Neujahr 2026", "date": "2026-01-01"},
+      {"name": "Karfreitag 2026", "date": "2026-04-03"},
+      {"name": "Ostermontag 2026", "date": "2026-04-06"},
+      {"name": "Tag der Arbeit 2026", "date": "2026-05-01"},
+      {"name": "Christi Himmelfahrt 2026", "date": "2026-05-14"},
+      {"name": "Pfingstmontag 2026", "date": "2026-05-25"},
+      {"name": "Fronleichnam 2026", "date": "2026-06-04"},
+      {"name": "Tag der Deutschen Einheit 2026", "date": "2026-10-03"},
+      {"name": "Weihnachtstag 2026", "date": "2026-12-25"},
+      {"name": "Zweiter Weihnachtstag 2026", "date": "2026-12-26"}
+  ]

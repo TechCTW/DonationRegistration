@@ -1,0 +1,99 @@
+/*=============body=============*/
+body{
+  /*Hintergrundfarbe der Website*/
+  background-color: #6c757d;
+}
+
+body{
+  opacity: 0; /*Inhalte zunächst ausblenden*/
+  transition: opacity 0.5s ease-in-out;
+}
+
+body.loaded {
+  opacity: 1; /*Inhalte sichtbar machen*/
+}
+
+
+/*=============NavBar=============*/
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-brand img {
+    width: auto;
+    max-height: 130px; 
+    transition: max-height 0.5s ease; /* Fügt eine Smooth transition hinzu */
+  }
+
+  .nav-link {               
+    cursor: pointer;
+    margin-right: 1em !important;     /* Abstand rechts - verhindern, dass es überschrieben wird */
+  }
+
+
+/*=============Cards=============*/
+  .cropped-image {
+    width: 100%;
+    height: 200px; /* Höhe anpassen je nach Bedarf */
+    object-fit: cover; /* Objektfüllung festlegen */
+  }
+
+  .card {
+    /* Stellt sicher, dass der Inhalt der Karte vertikal ausgerichtet ist und die Karte die volle Höhe des Containers einnimmt */
+    /* Die volle Höhe des Containers ist auch noch wichtig, damit alle Karten gleich hoch sind */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .card-body {
+    /* Verwendet Flexbox, um den Inhalt der Karte gleichmäßig zu verteilen und den Button am unteren Rand zu halten */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+  }
+
+/*=============Media-Queris=============*/
+/*Media-Queris angepasst an die container-klassen in Bootstrap 5
+    <576px (xs) >=576px (sm), >=768px (md), >=992px (lg), >=1200px (xl), >=1400 (xxl)
+*/
+
+@media (max-width: 576px) {    /*Überlappung verhindert "tote" Bereiche*/
+    .navbar-brand img {
+      max-height: 80px;
+    }
+    .cropped-image {
+      display: none;           /*Bilder werden über css bei xs display ausgeblendet*/
+    }
+    .display-lt-md{
+      display: block;       
+    }
+  }
+  
+  @media (min-width: 576px) and (max-width: 768px) {
+    .navbar-brand img {
+      max-height: 90px;
+    }
+    .display-lt-md{
+      display: block;       
+    }
+  }
+  @media (min-width: 768px) and (max-width: 992px) {
+    .navbar-brand img {
+      max-height: 110px;
+    }
+    .display-lt-md{
+      display: none;       
+    }
+  }
+  @media (min-width: 992px) {
+    .navbar-brand img {
+      max-height: 130px;
+    }
+    .display-lt-md{
+      display: none;       
+    }
+  }

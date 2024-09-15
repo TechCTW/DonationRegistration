@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KHMH e.V.</title>
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!--Spezifische CSS-->
+    <link rel="stylesheet" href="css/styles-global.css">
+    <!--Favicon-->
+    <link rel="icon" type="image/vnd.icon" href="img/favicon.ico">
+  </head>
+  <body>
+    <div class="container">
+      <div id="header"></div>
+      
+      <div class="container">
+        <div class="row mt-4 p-5 bg-light">
+          <div class="col-md-6 col-12 mt-2 px-4">
+            <h1>Spende anmelden</h1>
+            <form id="registration" class="py-2 p-2">
+                <!-- Hinweis für kleine Displays -->
+                <p class="display-lt-md">Bitte beachten Sie auch die Hinweise unten.</p>
+                <!-- Abgabe/Abholung -->
+                <div class="mb-3">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="delivery" id="pickUp" value="pickUp" onclick="toggleDelivery()" checked>
+                        <label class="form-check-label" for="pickUp">
+                            Abholung durch Sammelfahrzeug
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="delivery" id="dropOff" value="dropOff" onclick="toggleDelivery()">
+                        <label class="form-check-label" for="dropOff">
+                            Abgabe in unserer Geschäftsstelle
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Vor- und Nachname -->
+                <div class="mb-3">
+                  <label for="firstName" class="form-label">Vorname</label>
+                  <input 
+                    type="text" 
+                    class="form-control"
+                    name="firstName" 
+                    id="firstName" 
+                    placeholder="Ihr Vorname" 
+                    data-allowed-char="\u00c0-\u01ffa-zA-Z \-"
+                    minlength="3"
+                    maxlength="30" 
+                    oninput="checkInput(this)" 
+                    onblur="validateInput(this)" >
+                  <div class="invalid-feedback"></div>
+                </div>
+                <div class="mb-3">
+                  <label for="lastName" class="form-label">Nachname</label>
+                  <input 
+                    type="text" 
+                    class="form-control"
+                    name="lastName" 
+                    id="lastName" 
+                    placeholder="Ihr Nachname" 
+                    data-allowed-char="\u00c0-\u01ffa-zA-Z \-"
+                    minlength="3"
+                    maxlength="30" 
+                    oninput="checkInput(this)" 
+                    onblur="validateInput(this)" >
+                  <div class="invalid-feedback"></div>
+                </div> 
+
+                <!-- Abholadresse -->
+                <div id="pickUpAdress">
+                  <div class="mb-3">
+                    <label for="street" class="form-label">Straße</label>
+                    <input 
+                      type="text" 
+                      class="form-control"
+                      name="street" 
+                      id="street" 
+                      placeholder="Musterstraße" 
+                      data-assignment="pickUpAdress"
+                      data-allowed-char="\u00c0-\u01ffa-zA-Z0-9\.' \- \/"
+                      minlength="3"
+                      maxlength="30" 
+                      oninput="checkInput(this)" 
+                      onblur="validateInput(this)" >
+                    <div class="invalid-feedback"></div>
+                  </div> 
+                  <div class="mb-3">
+                    <label for="number" class="form-label">Hausnummer</label>
+                    <input 
+                      type="text" 
+                      class="form-control"
+                      name="number" 
+                      id="number" 
+                      placeholder="15a" 
+                      data-assignment="pickUpAdress"
+                      data-allowed-char="\u00c0-\u01ffa-zA-Z0-9\.' \- \/"
+                      minlength="1"
+                      maxlength="15" 
+                      oninput="checkInput(this)" 
+                      onblur="validateInput(this)" >
+                    <div class="invalid-feedback"></div>
+                  </div> 
+                  <div class="mb-3">
+                    <label for="zipCode" class="form-label">PLZ</label>
+                    <input 
+                      type="text" 
+                      class="form-control"
+                      name="zipCode" 
+                      id="zipCode" 
+                      placeholder="35000-35999" 
+                      data-assignment="pickUpAdress"
+                      data-allowed-char="0-9"
+                      data-zip-code-area="35"
+                      minlength="5"
+                      maxlength="5" 
+                      oninput="checkInput(this)" 
+                      onblur="validateInput(this)" >
+                    <div class="invalid-feedback"></div>
+                  </div> 
+                  <div class="mb-3">
+                    <label for="city" class="form-label">Wohnort</label>
+                    <input 
+                      type="text" 
+                      class="form-control"
+                      name="city" 
+                      id="city" 
+                      placeholder="Musterhausen" 
+                      data-assignment="pickUpAdress"
+                      data-allowed-char="\u00c0-\u01ffa-zA-Z0-9\.' \- \/"
+                      data-zip-code-area="35"
+                      minlength="3"
+                      maxlength="30" 
+                      oninput="checkInput(this)" 
+                      onblur="validateInput(this)" >
+                    <div class="invalid-feedback"></div>
+                  </div> 
+                  <!-- Auswahl Abholdatum -->
+                  <div class="mb-3">
+                    <label for="pickUpDate" class="form-label">Abholdatum</label>
+                    <select 
+                      class="form-select" 
+                      aria-label="Abholdatum" 
+                      name="pickUpDate" 
+                      id="pickUpDate" 
+                      form="form_id" 
+                      size="1" 
+                      data-count-startday = "2" 
+                      data-count-entries = "5" 
+                      onchange="validateSelect(this)"> 
+                      <option value="" selected disabled hidden>Bitte Abholdatum auswählen</option>
+                    </select>
+                    <div class="invalid-feedback"></div>
+                  </div>
+                </div>
+
+                <!-- Auswahl Spendenregion -->
+                <!-- Weitere Regionen einfach als option einfügen. Value bitte im Klartext hinterlegen - wird für Übersicht benötigt -->
+                <div class="mb-3">
+                  <label for="territory" class="form-label">Spendenregion</label>
+                  <select class="form-select" aria-label="Spendenregion" name="territory" id="territory" form="form_id" size="1" onchange="validateSelect(this)"> 
+                    <option value="" selected disabled hidden>Bitte Region auswählen</option>
+                    <option value="Afrika">Afrika</option>
+                    <option value="Naher Osten">Naher Osten</option>
+                    <option value="Osteuropa">Osteuropa</option>
+                  </select>
+                  <div class="invalid-feedback"></div>
+                </div>
+                
+                <!-- Spendenart -->
+                <!-- weitere Elemente einfach in gleicher Form einfügen!-->
+                <div class="mb-3">
+                  <label for="donation" class="form-label">Art der Spende</label>
+                  <div class="form-check">
+                    <input class="form-check-input me-1" type="checkbox" name="donation" value="Damenkleidung" id="clothingWomen" onclick="toggleDonationCheckbox(this)">
+                    <label class="form-check-label" for="clothingWomen">Damenkleidung</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input me-1" type="checkbox" name="donation" value="Herrenkleidung" id="clothingMen" onclick="toggleDonationCheckbox(this)">
+                    <label class="form-check-label" for="clothingMen">Herrenkleidung</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input me-1" type="checkbox" name="donation" value="Kinderkleidung" id="clothingChildren" onclick="toggleDonationCheckbox(this)">
+                    <label class="form-check-label" for="clothingChildren">Kinderkleidung</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input me-1" type="checkbox" name="donation" value="Schuhe" id="shoes" onclick="toggleDonationCheckbox(this)">
+                    <label class="form-check-label" for="shoes">Schuhe</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input me-1" type="checkbox" name="donation" value="Accessoires" id="accessories" onclick="toggleDonationCheckbox(this)">
+                    <label class="form-check-label" for="accessories">Accessoires (z.B. Gürtel)</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input me-1" type="checkbox" name="donation" value="Schlaf- und Bettwaren" id="bettingItems" onclick="toggleDonationCheckbox(this)">
+                    <label class="form-check-label" for="bettingItems">Schlaf- und Bettwaren</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input me-1" type="checkbox" name="donation" value="Sonstiges" id="other" onclick="toggleDonationCheckbox(this)">
+                    <label class="form-check-label" for="other">Sonstiges</label>
+                  </div>
+                  <div id="donationMessage" class="invalid-feedback"></div>
+                </div>
+                <!-- Buttons -->
+                <div class="container text-end mt-4">
+                  <button type="button" value="Submit" class="btn btn-outline-secondary" onclick="submitForm()">Absenden</button>       
+                </div>
+            </form>
+          </div>
+
+          <div class="col-md-6 col-12 px-4 bg-secondary text-white">
+            <!--Hinweise-->
+            <p class="mt-4"><strong><u>Wie können Sie uns Ihre Spende übergeben?</u></strong></p>
+            <ul>
+              <li>
+                <strong>Abgabe in unserer Geschäftsstelle:</strong><br>
+                Bringen Sie Ihre Spende einfach zu unseren Geschäftszeiten in unsere 
+                Geschäftsstelle in der Bahnhofstraße 5 in Musterhausen vorbei. 
+                Wir sind Mo-Fr von 17-19 Uhr für Sie da.
+                Sie können die Spende bis zu einer Woche vorher online registrieren oder die Registrierung direkt in unserer Geschäftsstelle vornehmen.
+              </li>
+              <li>
+                <strong>Abholung durch unser Sammelfahrzeug:</strong><br>
+                Für den Postleitzahlenbereich 35000-35999 bieten wir auch die Abholung durch unser Sammelfahrzeug an.
+                Bitte wählen Sie einen Termin aus, an dem wir die Spende abholen können.
+              </li>
+            </ul>
+            <p class="mt-4"><strong><u>Welcher Region möchten Sie mit Ihrer Spende helfen?</u></strong></p>
+            <p>Wählen Sie die Region, welche Ihre Spende bekommen soll. Angezeigt werden alle Regionen, in denen wir aktuell an Hilfsprojekten beteiligt sind.</p>
+            <p class="mt-4"><strong><u>Helfen Sie uns, Ihre Spende besser zu organisieren.</u></strong></p>
+            <p>
+              Bitte wählen Sie, was Ihre Spende beinhaltet. Mehrfachnennungen sind möglich. Wenn Sie sich unsicher sind, wählen Sie "Sonstiges".
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div id="footer"></div>
+    </div>
+
+    <!--Bootstrap-->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!--Spezifisch-->
+    <script src="JS/donation.js"></script>
+    <script src="JS/validateFunctions.js"></script>
+    <script src="JS/tools.js"></script>
+    <script src="JS/global.js"></script>
+  </body>
+</html>

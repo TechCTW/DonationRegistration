@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KHMH e.V.</title>
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!--Spezifische CSS-->
+    <link rel="stylesheet" href="css/styles-global.css">
+    <!--Favicon-->
+    <link rel="icon" type="image/vnd.icon" href="img/favicon.ico">
+  </head>
+  <body>
+    <div class="container">
+      <div id="header"></div>
+      <main class=" mt-4">
+        <div class="container p-5 bg-light">
+
+          <!--Fehler anzeigen, wenn Daten nicht richtig übertragen wurden-->
+          <div class="alert alert-danger" role="alter" id="errorMessage" hidden></div>
+          <a href="index.html" class="btn btn-outline-secondary" id="errorMessageButton" hidden>Startseite</a>
+          
+          <!--Wird ausgeblendet, wenn ein Fehler aufgetreten ist-->
+          <div class="row align-items-center" id="complete">
+            <div class="col-md-4">
+              <img src="img/overview.jpg" class="img-fluid" alt="Braune Papiertüte steht auf einem Tisch">
+            </div>
+            <div class='col-md-8'>
+              <!--Zusammenfassung-->
+              <h1>Registrierung vollständig.</h1>
+              <!--Hauptdaten-->
+              <div class="mainData">
+                <p><strong>Vorname:</strong><br><span id="firstName"></span></p>
+                <p><strong>Nachname: </strong><br><span id="lastName"></span></p>
+                <p><strong>Spendenregion: </strong><br><span id="territory"></span></p>
+                <p><strong>Art der Spende: </strong><br><span id="donationList"></span></p>
+              </div>
+              <!--Optionsabhängige Daten--> 
+              <div id="dropOffData">
+                <p><strong>Abgabe:</strong><br>
+                  Bitte geben Sie die Spende bis bis spätestend <strong id="dropOffDate" class="text-danger"></strong> in unserer Geschäftsstelle ab
+                </p>
+              </div>
+              <div id="pickUpData">
+                <p><strong>Abhohlung:</strong><br>
+                  Wir holen Ihre Spende bei Ihnen an der Adresse
+                  <strong><span id="street"></span>
+                  <span id="number"></span>,
+                  <span id="zipCode"></span>
+                  <span id="city"></span></strong> am
+                  <strong id="pickUpDate"></strong> ab.
+                </p>
+              </div>
+
+              <a href="index.html" class="btn btn-outline-secondary">Startseite</a>
+            </div>
+          </div>
+        </div>
+      </main>
+      <div id="footer"></div>
+    </div>
+  
+    <!--Bootstrap-->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!--Spezifisch-->
+    <script src="js/tools.js"></script>
+    <script src="js/overview.js"></script>
+    <script src="js/global.js"></script>  
+  </body>
